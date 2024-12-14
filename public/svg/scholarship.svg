@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="274" height="119" viewBox="0 0 274 119">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.044" y1="0.034" x2="1" y2="0.962" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#50d890"/>
+      <stop offset="1" stop-color="#4f98ca"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_17" data-name="Group 17" transform="translate(-707 -991)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(784.709 991)">
+      <g id="invisible_box" data-name="invisible box" transform="translate(0)">
+        <rect id="Rectangle_32" data-name="Rectangle 32" width="119" height="119" transform="translate(0.291)" fill="none"/>
+      </g>
+      <g id="Health_Icons" data-name="Health Icons" transform="translate(5.21 4.926)">
+        <path id="Path_19" data-name="Path 19" d="M93.169,38.971H81.093L63.841,6.438A6.9,6.9,0,0,0,57.187,2h-20.7a7.394,7.394,0,0,0-6.161,3.2,6.9,6.9,0,0,0-.493,7.147L41.413,38.971h-8.38L30.076,33.3h0a8.38,8.38,0,0,0-7.147-4.19H9.867a8.626,8.626,0,0,0-6.9,3.7,7.64,7.64,0,0,0-.246,6.9L11.1,56.223,2.719,72.735a7.64,7.64,0,0,0,.246,6.9,8.626,8.626,0,0,0,6.9,3.7H22.929a8.38,8.38,0,0,0,7.147-3.943l2.957-5.915h8.38L29.83,100.092a6.9,6.9,0,0,0,.493,7.147,7.394,7.394,0,0,0,6.161,3.2h20.7a6.9,6.9,0,0,0,6.654-4.436L81.093,73.475H93.169a17.252,17.252,0,1,0,0-34.5Zm0,24.646H75.178l-19.47,36.969H40.181L56.447,63.616H26.872l-4.929,9.858H13.317l8.626-17.252L13.317,38.971h8.626l4.929,9.858H56.447L40.181,11.86H55.708l19.47,36.969H93.169a7.394,7.394,0,0,1,0,14.787Z" transform="translate(-2.014 -1.999)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+    <g id="Layer_2-2" data-name="Layer 2" transform="translate(707 1022.659)">
+      <g id="invisible_box-2" data-name="invisible box" transform="translate(0 0)">
+        <rect id="Rectangle_32-2" data-name="Rectangle 32" width="57" height="55" transform="translate(0 0.341)" fill="none"/>
+      </g>
+      <g id="Health_Icons-2" data-name="Health Icons" transform="translate(2.347 2.239)">
+        <path id="Path_19-2" data-name="Path 19" d="M45.114,19.48H39.4L31.247,4.1A3.263,3.263,0,0,0,28.1,2H18.312A3.5,3.5,0,0,0,15.4,3.515a3.263,3.263,0,0,0-.233,3.379L20.643,19.48H16.681l-1.4-2.68h0A3.962,3.962,0,0,0,11.9,14.819H5.727a4.079,4.079,0,0,0-3.263,1.748,3.612,3.612,0,0,0-.117,3.263l3.962,7.808L2.347,35.445a3.612,3.612,0,0,0,.117,3.263,4.079,4.079,0,0,0,3.263,1.748H11.9a3.962,3.962,0,0,0,3.379-1.865l1.4-2.8h3.962L15.166,48.38a3.263,3.263,0,0,0,.233,3.379,3.5,3.5,0,0,0,2.913,1.515H28.1a3.263,3.263,0,0,0,3.146-2.1L39.4,35.794h5.71a8.157,8.157,0,0,0,0-16.314Zm0,11.653H36.608L27.4,48.613H20.06l7.691-17.48H13.767l-2.331,4.661H7.358l4.079-8.157L7.358,19.48h4.079l2.331,4.661H27.751L20.06,6.661H27.4l9.206,17.48h8.507a3.5,3.5,0,0,1,0,6.992Z" transform="translate(-2.014 -1.999)" fill="#f9f9f9"/>
+      </g>
+    </g>
+    <g id="Layer_2-3" data-name="Layer 2" transform="translate(925.736 1022.659)">
+      <g id="invisible_box-3" data-name="invisible box" transform="translate(0 0)">
+        <rect id="Rectangle_32-3" data-name="Rectangle 32" width="55" height="55" transform="translate(0.264 0.341)" fill="none"/>
+      </g>
+      <g id="Health_Icons-3" data-name="Health Icons" transform="translate(2.015 2.239)">
+        <path id="Path_19-3" data-name="Path 19" d="M45.114,19.48H39.4L31.247,4.1A3.263,3.263,0,0,0,28.1,2H18.312A3.5,3.5,0,0,0,15.4,3.515a3.263,3.263,0,0,0-.233,3.379L20.643,19.48H16.681l-1.4-2.68h0A3.962,3.962,0,0,0,11.9,14.819H5.727a4.079,4.079,0,0,0-3.263,1.748,3.612,3.612,0,0,0-.117,3.263l3.962,7.808L2.347,35.445a3.612,3.612,0,0,0,.117,3.263,4.079,4.079,0,0,0,3.263,1.748H11.9a3.962,3.962,0,0,0,3.379-1.865l1.4-2.8h3.962L15.166,48.38a3.263,3.263,0,0,0,.233,3.379,3.5,3.5,0,0,0,2.913,1.515H28.1a3.263,3.263,0,0,0,3.146-2.1L39.4,35.794h5.71a8.157,8.157,0,0,0,0-16.314Zm0,11.653H36.608L27.4,48.613H20.06l7.691-17.48H13.767l-2.331,4.661H7.358l4.079-8.157L7.358,19.48h4.079l2.331,4.661H27.751L20.06,6.661H27.4l9.206,17.48h8.507a3.5,3.5,0,0,1,0,6.992Z" transform="translate(-2.014 -1.999)" fill="#f9f9f9"/>
+      </g>
+    </g>
+  </g>
+</svg>

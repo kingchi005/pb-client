@@ -34,6 +34,8 @@ module.exports = {
         disabled: "hsl(var(--button-disabled))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        "app-primary": "#4f98ca",
+        "app-green": "#50d890",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

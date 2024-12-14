@@ -53,22 +53,27 @@ const faqs = [
 
 export default function FAQS() {
   return (
-    <section className="mx-auto mt-[3rem] px-8 lg:w-2/3">
-      <h2
-        className="mx-auto flex w-fit items-center justify-center px-12 text-center font-poppins text-sm text-white md:text-2xl"
-        id="pointer"
-      >
+    <section className="mx-auto mb-20 mt-[3rem] px-8 lg:w-2/3">
+      <h2 className="mb-14 text-center text-4xl font-bold text-neutral-900/90">
         Frequently asked questions (FAQS)
       </h2>
+
       <Accordion type="single" collapsible className="mt-6">
         {faqs.map((item) => {
           return (
             <AccordionItem key={item.id} value={`item-${item.id}`}>
-              <AccordionTrigger className=" text-md text-primary">
-                {item.question}
+              <AccordionTrigger className=" text-md">
+                <p className="flex justify-start gap-5">
+                  <span className="bg-app-green/10 text-app-primary grid h-6 w-6 place-items-center rounded-full text-lg font-bold">
+                    ?
+                  </span>
+                  <span className="font-semibold text-neutral-700">
+                    {item.question}
+                  </span>
+                </p>
               </AccordionTrigger>
-              <AccordionContent className="text-md font-normal text-secondary">
-                {item.ans}
+              <AccordionContent className="text-md font-normal text-neutral-500">
+                <p className="ms-12">{item.ans}</p>
               </AccordionContent>
             </AccordionItem>
           );

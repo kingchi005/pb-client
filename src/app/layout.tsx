@@ -41,6 +41,7 @@ const oswald = Oswald({
 
   variable: "--font-oswald",
 });
+
 // const manrope = Manrope({
 //   subsets: ["latin"],
 //   display: "swap",

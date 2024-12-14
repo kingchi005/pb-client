@@ -75,6 +75,22 @@ const Slide = ({ item, setActiveIndex }: StudentItemProps) => {
   useEffect(() => {
     setActiveIndex(item.id);
   }, [swiperSlide.isActive, item.id, setActiveIndex]);
+
+  return (
+    <div className="mx-auto w-[80%] rounded-3xl border-2 border-app-primary/70 bg-white p-10 px-14 md:w-[60%] xl:w-[50%]">
+      <div className="mb-10 flex items-center gap-14">
+        <img src={item.photo} className="h-20 w-20 rounded-lg object-cover" />
+        <div className="space-y-2 text-start">
+          <p className="text-2xl font-bold">{item.name}</p>
+          <p className="text-sm text-app-primary">{item.school}</p>
+        </div>
+      </div>
+      <div>
+        <p className="text-start  text-neutral-500">{item.content}</p>
+      </div>
+    </div>
+  );
+
   return (
     <div className="mx-auto flex w-[90%] flex-col gap-4 px-2  py-[1rem] shadow-lg md:w-[80%]  md:flex-row">
       <div className="flex flex-col items-center justify-stretch gap-4 md:w-1/2">
@@ -104,10 +120,11 @@ export default function Testimonials() {
   const [swiperInstance, setSwiperInstance] = useState<swiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(1);
   return (
-    <section className="relative mt-[4rem]  flex flex-col pb-[2rem] text-center">
-      <h2 className="relative mx-auto mb-4 flex w-fit items-center justify-center px-6 font-righteous text-lg font-semibold text-primary before:absolute before:-bottom-2 before:h-1 before:w-full before:bg-primary md:text-2xl">
+    <section className="relative mb-20 mt-[4rem] flex flex-col pb-[2rem] text-center">
+      <h2 className="mb-14 text-center text-4xl font-bold text-neutral-900/90">
         Testimonials
       </h2>
+
       <div className="relative mx-auto mt-12 w-full flex-1">
         <Swiper
           grabCursor={true}

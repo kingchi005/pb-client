@@ -21,7 +21,7 @@ export default function Button({
   onClick,
 }: buttonProps) {
   const normal =
-    "bg-primary flex items-center justify-center gap-2 text-white rounded-md hover:bg-[#0284c7] disabled:bg-disabled transition-colors duration-150 px-2 w-fit h-[3rem]";
+    "bg-primary flex items-center justify-center gap-2 text-white rounded-md hover:bg-[#0284c7] disabled:bg-disabled transition-colors duration-150 px-2 w-fit";
   const defaultClasses = cn(normal, {
     " w-[5rem]": size === "small",
     " w-[12rem]": size === "medium",

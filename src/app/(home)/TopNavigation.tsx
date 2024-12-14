@@ -50,14 +50,14 @@ export default function TopNavigation() {
             <span className="text-secondary-500">Cambridge Consult</span>
           </Link>
         </div>
-        <div className="hidden items-center justify-evenly md:flex md:flex-[2]">
+        <div className="hidden items-center justify-evenly md:flex md:flex-[0.7]">
           {navLinks.map((link) => {
             const active = pathname === link.url;
             return (
               <Link
                 key={link.id}
                 href={link.url}
-                className={`font-oswald text-lg font-[500] capitalize ${
+                className={`font-oswald text-base font-[500] capitalize ${
                   active ? "border-b-2 border-primary" : "border-0"
                 } text-primary`}
               >
@@ -65,8 +65,11 @@ export default function TopNavigation() {
               </Link>
             );
           })}
-          <Link href={"/portal"}>
-            <Button className="px-6">Portal</Button>
+          <Link
+            className="rounded-3xl bg-app-primary px-6 py-1.5 pb-2 text-sm text-white"
+            href={"/portal"}
+          >
+            Portal
           </Link>
         </div>
         <button

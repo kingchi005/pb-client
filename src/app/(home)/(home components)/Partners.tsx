@@ -4,32 +4,19 @@ import React from "react";
 export default function Partners() {
   return (
     <section className="my-[6rem] flex flex-col items-center gap-8">
-      <h2 className="relative mx-auto mb-4 flex w-fit items-center justify-center px-6 font-righteous text-lg font-semibold text-primary before:absolute before:-bottom-2 before:h-1 before:w-full before:bg-primary md:text-2xl">
+      <h2 className="mb-10 text-center text-4xl font-bold text-neutral-900/90">
         Our Partners
       </h2>
-      <div className="flex gap-4 px-4">
-        <span className="inline">
-          <Image
-            src={"/images/hilworth-college.webp"}
-            alt="hilworth college"
-            height={250}
-            width={250}
-            sizes="(max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            33vw"
-          />
-        </span>
-        <span className="flex items-center">
-          <Image
-            src={"/images/the-community-solution.webp"}
-            alt="hilworth college"
-            height={50}
-            width={200}
-            sizes="(max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            33vw"
-          />
-        </span>
+
+      <div className="flex flex-wrap justify-center px-4 md:gap-4 ">
+        <img
+          src="/images/hilworth-college.webp"
+          className="h-20 w-auto lg:h-32"
+        />
+        <img
+          src="/images/the-community-solution.webp"
+          className="h-20 w-auto lg:h-32"
+        />
       </div>
     </section>
   );
