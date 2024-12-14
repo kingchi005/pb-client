@@ -56,10 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <Providers>
-      <html
-        lang="en"
-        className={`${inter.variable} ${righteous.className} ${poppins.className} ${oswald.className}`}
-      >
+      <html lang="en" className={`${poppins.className}`}>
         <body>
           {children}
           <Toaster />

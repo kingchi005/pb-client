@@ -33,7 +33,10 @@ export default function Events() {
         <div className="h-[80vh]  rounded-2xl bg-gradient-to-r from-app-green/10 to-white"></div>
         <div className="-mt-[50vh] px-5 md:px-20">
           <h2 className="mb-5 text-3xl font-bold text-app-primary">Events</h2>
-          <p className="text-sm"></p>
+          <p className="mb-5 text-sm">
+            Empowering growth and connection through tailored events and
+            insightful consultations.
+          </p>
           <div className="w-full rounded-2xl bg-neutral-50 p-10">
             <p className="mb-6 text-xl font-bold">Upcoming</p>
             {data?.data?.event?.length &&
@@ -73,8 +76,8 @@ export default function Events() {
         <div className="p-10 ">
           <div className="grid-flow-col items-center justify-center gap-10 gap-y-10 space-y-6 md:grid md:justify-items-end md:space-y-0">
             <div className="">
-              <h2 className="mb-4 text-6xl font-bold">2024</h2>
-              <p className="text-3xl font-bold text-neutral-500 ">
+              <h2 className="mb-4 text-5xl font-bold">2024</h2>
+              <p className="text-2xl font-bold text-neutral-500 ">
                 Save a life 1.0
               </p>
             </div>
@@ -93,6 +96,35 @@ export default function Events() {
             "/images/save-life2.jpg",
             "/images/save-life3.jpg",
             "/images/save-life4.jpg",
+          ].map((img, i) => (
+            <img key={i} src={img} alt="" className="rounded-2xl" />
+          ))}
+        </div>
+      </section>
+      <section className="mb-20 bg-neutral-50 px-5 py-10 md:px-20">
+        <div className="p-10 ">
+          <div className="grid-flow-col items-center justify-center gap-10 gap-y-10 space-y-6 md:grid md:justify-items-end md:space-y-0">
+            <div className="">
+              <h2 className="mb-4 text-5xl font-bold">2023</h2>
+              <p className="text-2xl font-bold text-neutral-500 ">
+                Unleashing the Power of Being an International Student{" "}
+              </p>
+            </div>
+            <div className=" md:w-2/3">
+              <img
+                src="/images/unleash-benefit.jpg"
+                alt=""
+                className="w-full min-w-[250px] rounded-xl"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-5 sm:gap-10">
+          {[
+            "/images/unlease1.jpg",
+            "/images/unlease2.jpg",
+            "/images/unlease3.jpg",
+            "/images/unlease4.jpg",
           ].map((img, i) => (
             <img key={i} src={img} alt="" className="rounded-2xl" />
           ))}

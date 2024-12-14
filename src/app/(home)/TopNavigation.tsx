@@ -35,7 +35,7 @@ export default function TopNavigation() {
     >
       {/* <Announcement /> */}
       <div className="flex w-full items-center px-4 py-2 md:px-[2rem] lg:px-[4rem]">
-        <div className="flex items-center gap-2 md:flex-1">
+        <div className="flex items-center gap-5 md:flex-1">
           <Image
             src={"/images/logo.jpg"}
             alt="logo"
@@ -50,14 +50,14 @@ export default function TopNavigation() {
             <span className="text-secondary-500">Cambridge Consult</span>
           </Link>
         </div>
-        <div className="hidden items-center justify-evenly md:flex md:flex-[0.7]">
+        <div className="hidden items-center justify-evenly md:flex md:flex-[1]">
           {navLinks.map((link) => {
             const active = pathname === link.url;
             return (
               <Link
                 key={link.id}
                 href={link.url}
-                className={`font-oswald text-base font-[500] capitalize ${
+                className={`font-oswald text-sm font-[500] capitalize ${
                   active ? "border-b-2 border-primary" : "border-0"
                 } text-primary`}
               >
