@@ -18,43 +18,42 @@ const slideData = [
   {
     id: 1,
     name: "Grace Mbalisi",
-    school: "FGGC Owerri",
+    school: "University of Maryland Baltimore Maryland U.S.A",
     year: "Class 2020",
     content: `Pb Cambridge Consult has exposed me more about the SAT Exam. This consult assured me my success which was gained. 
     This great academy is a blessing to my life, it has made way for me in my academics. Pb Cambridge Consult was with me throughout the process in getting admissions and scholarships in different schools in the United States of America.
     I’m so grateful for this Academy that has impacted more knowledge in me . 
     Thank you Pb Cambridge Academy!!!!!`,
-    photo: "/images/grace.jpg",
+    photo: "/images/Grace Mbalisi.jpg",
   },
   {
     id: 2,
-    name: "Ferdy-Mbagwu Chizuberm Goodness",
-    school: "FGGC Owerri",
+    name: "Chizuberem Ferdy-Mbagwu.",
+    school: "Jacksonville University, Florida U.S.A",
     year: "Class 2022",
-    content: `I got to know of PB Cambridge Consult while in my final year in secondary school.My school was opportune to be one of the schools that benefited from the organisation's outreach.
-    Starting from the SAT practice mock exams to the tutorials on apppying to colleges in the US,as well as Visa Interview practice sessions. I must say,before I got acquainted with PB Cambridge, 
-    I had always tried applying to schools abroad on my own but unfortunately,my efforts always led to a dead end.  To the glory of God,I got accepted into 5 schools in the US each with huge amount of scholarships and hence, my plan to pursue my dream of studying in the United States is gradually coming to reality.`,
-    photo: "/images/goodness.jpg",
+    content: `I got to know of PB Cambridge Consult while in my final year in secondary school.My school was opportune to be one of the schools that benefited from the organisation's outreach. Starting from the SAT practice mock exams to the tutorials on apppying to colleges in the US,as well as Visa Interview practice sessions. I must say,before I got acquainted with PB Cambridge, I had always tried applying to schools abroad on my own but unfortunately,my efforts always   led to a dead end. "Ignorance indeed is a disease and information is power", I confirmed this statement when I finally joined the organisation. To the glory of God,I got accepted into 5 schools in the US each with huge amount of scholarships and hence, my plan to pursue my dream of studying in the United States gradually came to reality. Thank you PB Cambridge🔥
+`,
+    photo: "/images/florida.jpg",
   },
   {
     id: 3,
-    name: "Daniel Nwachukwu",
-    school: "FGC Okigwe",
+    name: "Aliche Nnaemeka",
+    school: "SAIT Alberta Calgary Canada",
     year: "Class 2021",
     content: `Joining the PB Cambridge consult was sudden for me at first because I wasn't sure of what I was doing but along the line, it made me get exposed to how the system works outside Nigeria. It was an amazing experience for me preparing for the SAT, writing the SAT, Writing personal statements and essays for college applications and with the help of PB Cambridge consult, My essays became more better than how it was, just mention a few of what I've gained from PB Cambridge consult.
     Lastly, I'm glad because it's paying off, already receiving College acceptance letter and scholarships. Forever grateful to have joined the PB Cambridge consult 🙌🙌🙌`,
-    photo: "/images/daniel.jpg",
+    photo: "/images/emeka.jpg",
   },
   {
     id: 4,
-    name: "Justice Nzefuihu",
-    school: "Alvana Model Secondary school Owerri",
+    name: "Ekeocha Samuel",
+    school: "Regina University Saskatchewan Regina Canada",
     year: "Class 2022",
     content: `Helping someone is a way to show you care. Further on, I will state how a group,pb Cambridge consult, has helped me in my application for schooling abroad.
     There was a time the group came to my school,Alvana Model School Ow., to brief us about schooling abroad and how to apply.
     Those who were interested meet the head of the group, Miss Buba Percious, so she set up a meeting for us to discuss; then she told us about SAT, test for school entrance and scholarship, and she walked us through it.After the test she guided us throughout our application.
     I have always wanted to school abroad; if not for pb Cambridge consult group, I will not have known what is involved in applying to school abroad. Thanks alot for your time and guidance.`,
-    photo: "/images/justice.jpg",
+    photo: "/images/eko-sam.jpg",
   },
 ];
 
