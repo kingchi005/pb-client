@@ -41,7 +41,7 @@ export default function Events() {
           <div className="w-full rounded-2xl bg-neutral-50 p-10">
             <p className="mb-6 text-xl font-bold">Upcoming</p>
             {data?.data?.event?.length &&
-              data?.data?.event?.slice(0, 2).map((ev, i) => (
+              data?.data?.event?.slice(1, 2).map((ev, i) => (
                 <div className="mb-20 grid-flow-col gap-10 gap-y-10 space-y-6 md:grid md:space-y-0">
                   <div className="">
                     <img
