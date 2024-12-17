@@ -4,7 +4,7 @@ import Register from "../Register";
 export default function Page() {
   return (
     <main className="relative min-h-screen">
-      <div className="relative mt-[8rem] h-[18rem]">
+      {/* <div className="relative mt-[8rem] h-[18rem]">
         <Image
           src={"/svg/no-registration.svg"}
           alt=""
@@ -18,8 +18,8 @@ export default function Page() {
 
       <h2 className="text-center font-righteous text-xl text-primary">
         No ongoing Registration{" "}
-      </h2>
-      {/* <Register /> */}
+      </h2> */}
+      <Register />
     </main>
   );
 }

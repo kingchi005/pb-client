@@ -190,6 +190,14 @@ export default function Step1<T>({
           setSelectedValue={setStudentSchool}
           label={"Student School"}
         />
+        {/* <select name=""  id="">
+          {(isLoading || isError
+            ? []
+            : data?.data.ongoingCompetitions[0].schools
+          ).map((opt) => (
+            <option>{opt.name}</option>
+          ))}
+        </select> */}
         <div className="relative flex items-end gap-2">
           <List
             dropdownList={isLoading || isError ? [] : studentsLevel}

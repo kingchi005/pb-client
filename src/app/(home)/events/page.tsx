@@ -8,6 +8,7 @@ import { type Events } from "@/lib/axios/apiRequestTypes";
 import { getEvents } from "@/lib/axios/requests";
 import { Event } from "@/lib/axios/requestTypes";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const filter = ["All", "Upcoming", "Completed"];
 const list = [
@@ -25,7 +26,7 @@ export default function Events() {
     getEvents(),
   );
 
-  // console.log(data)
+  console.log(data);
 
   return (
     <main className="px-8 pb-[50vh] pt-[7rem]">
@@ -40,8 +41,8 @@ export default function Events() {
           <div className="w-full rounded-2xl bg-neutral-50 p-10">
             <p className="mb-6 text-xl font-bold">Upcoming</p>
             {data?.data?.event?.length &&
-              data?.data?.event?.map((ev, i) => (
-                <div className="grid-flow-col gap-10 gap-y-10 space-y-6 md:grid md:space-y-0">
+              data?.data?.event?.slice(0, 2).map((ev, i) => (
+                <div className="mb-20 grid-flow-col gap-10 gap-y-10 space-y-6 md:grid md:space-y-0">
                   <div className="">
                     <img
                       src={ev.bannerImage}
@@ -58,10 +59,13 @@ export default function Events() {
                       // className="mt-5 rounded-3xl border border-primary bg-neutral-50/70 px-5 py-1.5 text-primary/70 hover:text-white"
                       className="rounded-3xl border border-app-primary px-5 py-1.5 text-app-primary"
                     >
-                      <span className="flex flex-row items-center gap-3">
+                      <Link
+                        href={`/events/${ev.id}`}
+                        className="flex flex-row items-center gap-3"
+                      >
                         <span className="m-0">Apply Now</span>
                         <ArrowRight size={20} />
-                      </span>
+                      </Link>
                     </button>
                   </div>
                 </div>

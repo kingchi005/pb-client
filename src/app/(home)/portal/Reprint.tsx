@@ -42,22 +42,30 @@ export default function Reprint() {
 
   return (
     <form
-      className="mt-[4rem] flex flex-col items-center gap-4"
+      className="mt-[4rem] flex flex-col items-center gap-3"
       onSubmit={handleSubmit}
     >
-      <p className="text-sm text-primary">Reprint Acknowledgement Slip</p>
-      <TextField
+      <p className="text-sm text-neutral-500">Reprint Acknowledgement Slip</p>
+      {/* <TextField
         name="regNo"
         label="Reference No"
         type="text"
         onChange={(e) => setValue(e.target.value)}
         value={value}
         placeholder="Reference No"
-      />
+      /> */}
+      <input  name="regNo"
+        // label="Reference No"
+        type="text"
+        onChange={(e) => setValue(e.target.value)}
+        value={value}
+        placeholder="Reference No" className="w-full px-4 py-2 outline-none"/>
 
-      <Button type="submit" size="fullwidth" disabled={value.length !== 16}>
+      <button  type="submit"className="rounded-3xl bg-app-primary px-8 py-1.5 pb-2 text-sm text-white" disabled={value.length !== 16}>
         Submit
-      </Button>
+      </button>
+
+
       <p className="text-red-500">{errorMsg}</p>
       {displayAknowledgement && (
         <Overlay>
