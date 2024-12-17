@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 export default function Page() {
 	return (
 		<main className="px-8 pt-32 pb-20">
-			<div className="rounded-2xl bg-gradient-to-r from-app-green/10 to-white pt-40 flex flex-row">
-				<div className="px-5 md:px-20">
+			<div className="rounded-2xl px-5 md:px-16 items-center gap-8 bg-gradient-to-r from-app-green/10 to-white pt-40 md:flex flex-row mb-20">
+				<div className="md:w-3/5">
 					<h2 className="mb-5 text-3xl font-bold text-app-primary">About Us</h2>
 					<p className="mb-5 text-base text-neutral-500 font-semibold">
 						Welcome to PBCambridge Consult, where education meets opportunity.
@@ -34,8 +34,15 @@ export default function Page() {
 						recognizing achievement with certificates.
 					</p>
 				</div>
-				<img src="/images/hero-image.webp" />
+				<div className="md:w-2/5">
+					<img
+						src="/images/hero-image.webp"
+						className="rounded-lg border-[6px] border-white shadow-md"
+					/>
+				</div>
 			</div>
+			<DetailsSection />		
+			<Team />
 		</main>
 	);
 	return (

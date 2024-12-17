@@ -27,10 +27,23 @@ const content = [
 
 export default function DetailsSection() {
   return (
-    <section className="mx-auto my-4 flex w-[80%] flex-col gap-[4rem]">
-      {content.map((item) => {
-        return <DetailsCard key={item.id} {...item} />;
-      })}
-    </section>
+  	<section>
+				{content.map((cont)=>(<div className="relative px-5 mx-10 py-10 items-center gap-8  to-white md:flex flex-row border-l-[3px] border-l-neutral-500/50">
+<span className="absolute grid grid-flow-col -left-[19px] -top-[19px] place-items-center w-[36px] h-[36px] justify-center rounded-full border-2 border-neutral-500/50 bg-neutral-50">#<span className="text-app-primary font-bold">{cont.id}</span></span>
+					<div className="md:w-3/5">
+						<h2 className="mb-5 text-xl font-bold">
+							{cont.header}
+						</h2>
+						<p className="mb-5 text-base text-neutral-500 font-semibold">{cont.description}</p>
+					</div>
+					<div className="md:w-2/5">
+						<img
+							src={cont.image}
+							className="rounded-2xl"
+						/>
+					</div>
+				</div>)
+        )}
+			</section>
   );
 }

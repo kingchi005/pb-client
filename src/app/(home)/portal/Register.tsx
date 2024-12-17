@@ -100,61 +100,61 @@ export default function Register() {
     }
   };
   return (
-    <section
-      className={`mx-auto min-h-screen w-[90%] ${
-        pathname.includes("register_student")
-          ? " py-[8rem] pt-[5rem]  lg:w-[60%]"
-          : ""
-      }`}
-    >
-      <StepperIndicator steps={steps} />
-      {steps === 1 ? (
-        <Step1
-          formik={formik}
-          studentLevelValue={studentLevelValue}
-          setStudentLevelValue={setStudentLevelValue}
-          course={course}
-          setCourse={setCourse}
-          studentSchool={studentSchool}
-          setStudentSchool={setStudentSchool}
-          images={images}
-          setImages={setImages}
-        />
-      ) : steps === 2 ? (
-        <Step2
-          step2Data={step2Data}
-          getPaymentReference={getPaymentReference}
-        />
-      ) : (
-        <Step3 step3Data={step3Data.current} />
-      )}
+		<section
+			className={`mx-auto min-h-screen w-[90%] ${
+				pathname.includes("register_student")
+					? " py-[8rem] pt-[5rem]  lg:w-[60%]"
+					: ""
+			}`}
+		>
+			<StepperIndicator steps={steps} />
+			{steps === 1 ? (
+				<Step1
+					formik={formik}
+					studentLevelValue={studentLevelValue}
+					setStudentLevelValue={setStudentLevelValue}
+					course={course}
+					setCourse={setCourse}
+					studentSchool={studentSchool}
+					setStudentSchool={setStudentSchool}
+					images={images}
+					setImages={setImages}
+				/>
+			) : steps === 2 ? (
+				<Step2
+					step2Data={step2Data}
+					getPaymentReference={getPaymentReference}
+				/>
+			) : (
+				<Step3 step3Data={step3Data.current} />
+			)}
 
-      <div className="flex items-center justify-center">
-        {steps === 1 ? (
-          <Button
-            type="button"
-            size="medium"
-            className="mx-auto mt-4"
-            onClick={handleNextButton}
-          >
-            next
-          </Button>
-        ) : steps === 2 ? (
-          <Button
-            type="button"
-            size="medium"
-            className="mx-auto mt-4"
-            onClick={() => setSteps((prev) => prev - 1)}
-          >
-            Prev
-          </Button>
-        ) : null}
-      </div>
-      {loading && (
-        <Overlay>
-          <Loader />
-        </Overlay>
-      )}
-    </section>
-  );
+			<div className="flex items-center justify-center">
+				{steps === 1 ? (
+					<Button
+						type="button"
+						size="medium"
+						className="mx-auto mt-4 py-2"
+						onClick={handleNextButton}
+					>
+						next
+					</Button>
+				) : steps === 2 ? (
+					<Button
+						type="button"
+						size="medium"
+						className="mx-auto mt-4 py-2"
+						onClick={() => setSteps((prev) => prev - 1)}
+					>
+						Prev
+					</Button>
+				) : null}
+			</div>
+			{loading && (
+				<Overlay>
+					<Loader />
+				</Overlay>
+			)}
+		</section>
+	);
 }

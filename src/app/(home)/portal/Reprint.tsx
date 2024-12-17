@@ -60,10 +60,12 @@ export default function Reprint() {
         onChange={(e) => setValue(e.target.value)}
         value={value}
         placeholder="Reference No" className="w-full px-4 py-2 outline-none"/>
+<div className="flex justify-center">
 
       <button  type="submit"className="rounded-3xl bg-app-primary px-8 py-1.5 pb-2 text-sm text-white" disabled={value.length !== 16}>
         Submit
       </button>
+</div>
 
 
       <p className="text-red-500">{errorMsg}</p>

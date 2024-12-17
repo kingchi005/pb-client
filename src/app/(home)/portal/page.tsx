@@ -8,7 +8,7 @@ import Reprint from "./Reprint";
 export default function page() {
   return (
     <main className="flex flex-row min-h-screen items-center">
-      <section className="relative hidden md:w-1/2 lg:block">
+      <section className="relative hidden md:w-1/2 md:block">
         {/* <Image
           src={"/svg/students.svg"}
           alt="students"
@@ -18,9 +18,9 @@ export default function page() {
           (max-width: 1200px) 50vw,
           33vw"
         /> */}
-        <img src="/svg/students.svg" className="hidden md:block"/>
+        <img src="/svg/students.svg" className="min-w-[400px]"/>
       </section>
-      <section className="mt-[3rem] flex w-full flex-col items-start px-4 lg:w-1/2">
+      <section className="mt-[3rem] flex w-full flex-col items-start px-4 ps-8 md:ps-0 lg:w-1/2">
         <h2 className="mb-14 space-y-3 text-start text-4xl font-bold text-neutral-900/90">
           <p>
             What we Do Welcome to <br />{" "}
