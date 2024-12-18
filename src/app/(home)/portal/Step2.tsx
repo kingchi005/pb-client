@@ -20,7 +20,7 @@ export default function Step2({ step2Data, getPaymentReference }: Step2Props) {
   };
 
   const componentProps = {
-    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_TEST_KEY as string,
+    publicKey: process.env.NEXT_PUBLIC_PAYSTACK_KEY as string,
     email: step2Data.current?.email != undefined ? step2Data.current.email : "",
     amount:
       step2Data?.current?.amount != undefined
