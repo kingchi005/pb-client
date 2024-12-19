@@ -32,6 +32,9 @@ type Step1Props<T> = {
 };
 
 const courseList = [{ name: "Science" }, { name: "Art" }];
+const states=[
+
+]
 
 export const formatAmount = (amount: number) => {
   const formatter = new Intl.NumberFormat("en-NG", {
@@ -61,10 +64,10 @@ export default function Step1<T>({
   );
 
   const studentsLevel = [
-    { name: "Junior", amount: data?.data.ongoingCompetitions[0].juniorRegFee },
-    { name: "Senior", amount: data?.data.ongoingCompetitions[0].seniorRegFee },
+    // { name: "Junior", amount: data?.data.ongoingCompetitions[0].juniorRegFee },
+    { name: "Seconary", amount: data?.data.ongoingCompetitions[0].seniorRegFee },
     {
-      name: "Graduated",
+      name: "Tertiary",
       amount: data?.data.ongoingCompetitions[0].graduateRegFee,
     },
   ];
@@ -204,7 +207,7 @@ export default function Step1<T>({
             dropdownList={isLoading || isError ? [] : studentsLevel}
             selectedValue={studentLevelValue}
             setSelectedValue={setStudentLevelValue}
-            label={"Student Level"}
+            label={"Institution Category"}
           />
 				
 					<div className="border-gray relative flex h-full items-center pt-6">
@@ -221,7 +224,7 @@ export default function Step1<T>({
 					dropdownList={courseList}
 					selectedValue={course}
 					setSelectedValue={setCourse}
-					label={"Class"}
+					label={"State"}
 				/>
 			</form>
 		</section>

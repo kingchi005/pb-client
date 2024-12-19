@@ -84,7 +84,7 @@ export default function SchoolTable() {
 									<span className="flex-row gap-3 hidden group-hover:flex">
 										<Popover>
 											<PopoverTrigger>
-												<Edit />
+												<Edit color="#555" />
 											</PopoverTrigger>
 											<PopoverContent align="start" className="w-[100%]">
 												<form
@@ -121,7 +121,7 @@ export default function SchoolTable() {
 										<Edit />
 									</button> */}
 										<button onClick={() => handleDelete(id)}>
-											<Delete />
+											<Delete color="#555" />
 										</button>
 									</span>
 									<span>{name}</span>

@@ -40,7 +40,7 @@ export default function Register() {
   useEffect(() => {
     if (data) {
       const studentsLevel = {
-        name: "Junior",
+        name: "Tertiary",
         amount: data?.data.ongoingCompetitions[0].juniorRegFee,
       };
 
@@ -56,7 +56,7 @@ export default function Register() {
       email: "",
       phoneNumber: "",
       whatsappNumber: "",
-      scienceOrArt: "",
+      state: "",
       hasInternationalPassport: false,
     },
     validationSchema: registerValidationSchema,
@@ -65,7 +65,7 @@ export default function Register() {
         step2Data.current = {
           ...values,
           amount: studentLevelValue.amount,
-          scienceOrArt: course.name,
+          state: course.name,
           passport: images[0].dataURL,
           schoolId: studentSchool.id,
           level: studentLevelValue.name,
