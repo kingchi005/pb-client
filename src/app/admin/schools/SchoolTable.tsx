@@ -1,11 +1,27 @@
-import { Loader } from "@/components";
+import { Button, Loader } from "@/components";
+import { Input } from "@/components/ui/Input";
+import { Label } from "@/components/ui/Label";
+import { DialogHeader, DialogFooter } from "@/components/ui/dialog";
 import { School } from "@/lib/axios/apiRequestTypes";
 import { adminGetRequest } from "@/lib/axios/apiRequests";
 import { deleteSchool, editSchool, getSchools } from "@/lib/axios/requests";
-import { Dialog } from "@radix-ui/react-dialog";
+import {
+	Dialog,
+	DialogClose,
+	DialogContent,
+	DialogDescription,
+	DialogTitle,
+	DialogTrigger,
+} from "@radix-ui/react-dialog";
+import {
+	Popover,
+	PopoverTrigger,
+	PopoverContent,
+	PopoverClose,
+} from "@radix-ui/react-popover";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createColumnHelper } from "@tanstack/react-table";
-import { Edit, Delete } from "lucide-react";
+import { Edit, Delete, Copy } from "lucide-react";
 import React from "react";
 
 const schools: School[] = [
@@ -43,35 +59,72 @@ export default function SchoolTable() {
 	if (isError)
 		return <h2 className="mt-4 text-center">Error trying to get records</h2>;
 
-	async function handleDelete() {
-    return await removeSchool;
+	async function handleDelete(id: string) {
+		if (confirm("Are you sure?")) {
+			removeSchool.mutate({ id });
+		}
 	}
 	async function handleUpdate() {
-    return (id: string) => {};
+		return (id: string) => {};
 	}
 
 	return (
-		<div className=" mt-5 border-collapse border-spacing-4 rounded-md border border-primary">
-			<ul className="flex flex-col flex-wrap gap-4 p-5">
-				{data.data.schools &&
-					data.data.schools.map(({ id, name, students }) => (
-						<li
-							key={id}
-							className="grid grid-flow-col  rounded bg-blue-100 p-4 "
-						>
-							<span>{name}</span>
-							{/* <span className="ml-auto ">{students} students</span> */}
-							<span className="ml-auto flex flex-row gap-3">
-								<button onClick={() => setIsEditing(true)}>
-									<Edit />
-								</button>
-								<button onClick={()=>removeSchool.mutate({id})}>
-									<Delete />
-								</button>
-							</span>
-						</li>
-					))}
-			</ul>
-		</div>
+		<>
+			<div className=" mt-5 border-collapse border-spacing-4 rounded-md border border-primary">
+				<ul className="flex flex-col flex-wrap gap-4 p-5">
+					{data.data.schools &&
+						data.data.schools
+							.sort((a, b) => (a.name?.[0] > b.name?.[0] ? 1 : 0))
+							.map(({ id, name, students }) => (
+								<li
+									key={id}
+									className="grid grid-flow-col  justify-start gap-5 rounded bg-blue-100 p-4 "
+								>
+									{/* <span className="ml-auto ">{students} students</span> */}
+									<span className="flex flex-row gap-3">
+										<Popover>
+											<PopoverTrigger>
+												<Edit />
+											</PopoverTrigger>
+											<PopoverContent align="start" className="w-[100%]">
+												<form
+													onSubmit={(ev) => {
+														ev.preventDefault();
+                            //@ts-ignore
+														updateSchool.mutate({ id, name:ev.currentTarget.name!.value! });
+													}}
+													className="justify-start items-center flex w-full"
+												>
+													{/* <Label htmlFor="width">Name</Label> */}
+													<Input
+														id="width" name="name"
+														defaultValue={name}
+														className="col-span-2 h-8 w-full"
+													/>
+													{/* <PopoverClose> */}
+													<button
+														type="submit"
+														// onClick={() => setIsEditing(true)}
+														className="btn-xs text-xs bg-app-green py-1 px-3"
+													>
+														save
+													</button>
+													{/* </PopoverClose> */}
+												</form>
+											</PopoverContent>
+										</Popover>
+										{/* <button onClick={() => setIsEditing(true)}>
+										<Edit />
+									</button> */}
+										<button onClick={() => handleDelete(id)}>
+											<Delete />
+										</button>
+									</span>
+									<span>{name}</span>
+								</li>
+							))}
+				</ul>
+			</div>
+		</>
 	);
 }
