@@ -78,10 +78,10 @@ export default function SchoolTable() {
 							.map(({ id, name, students }) => (
 								<li
 									key={id}
-									className="grid grid-flow-col  justify-start gap-5 rounded bg-blue-100 p-4 "
+									className="grid grid-flow-col  justify-start gap-5 rounded bg-blue-100 p-4 group"
 								>
 									{/* <span className="ml-auto ">{students} students</span> */}
-									<span className="flex flex-row gap-3">
+									<span className="flex-row gap-3 hidden group-hover:flex">
 										<Popover>
 											<PopoverTrigger>
 												<Edit />
@@ -90,14 +90,18 @@ export default function SchoolTable() {
 												<form
 													onSubmit={(ev) => {
 														ev.preventDefault();
-                            //@ts-ignore
-														updateSchool.mutate({ id, name:ev.currentTarget.name!.value! });
+														updateSchool.mutate({
+															id,
+															//@ts-ignore
+															name: ev.currentTarget.name!.value!,
+														});
 													}}
 													className="justify-start items-center flex w-full"
 												>
 													{/* <Label htmlFor="width">Name</Label> */}
 													<Input
-														id="width" name="name"
+														id="width"
+														name="name"
 														defaultValue={name}
 														className="col-span-2 h-8 w-full"
 													/>

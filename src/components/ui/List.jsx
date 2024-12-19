@@ -33,8 +33,8 @@ export default function List({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute z-[500] mt-1 max-h-[10rem] list-option w-full overflow-y-auto rounded-md  bg-white px-4  py-1 text-base shadow-lg  sm:text-sm">
-            {dropdownList?.map((person, personIdx) => (
+          <Listbox.Options  className="absolute z-[500] max-h-32 list-option w-full overflow-y-scroll rounded-md  bg-white px-4  py-1 text-base shadow-lg  sm:text-sm">
+            {dropdownList?.slice(0,50).map((person, personIdx) => (
               <Listbox.Option
                 key={personIdx}
                 className={({ active }) =>

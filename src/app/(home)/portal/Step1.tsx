@@ -3,6 +3,7 @@ import { List, TextField, ImageUploader } from "@/components";
 import { getCompetitions } from "@/lib/axios/requests";
 import { useQuery } from "@tanstack/react-query";
 import { FormTypes } from "./register_student/registerStudentTypes";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectItem } from "@radix-ui/react-select";
 
 type Step1Props<T> = {
   formik: FormikProps<FormTypes>;
@@ -69,159 +70,160 @@ export default function Step1<T>({
   ];
 
   return (
-    <section>
-      <form className="relative grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="relative flex md:col-span-2">
-          <ImageUploader images={images} setImages={setImages} />
-          <div className="flex flex-col justify-between py-4">
-            <p className="bottom-4 text-sm text-primary">Passport</p>
-            <p className="mt-2 text-xs text-red-500">{`${
-              images.length > 0 ? "" : "passport is required"
-            }`}</p>
-          </div>
-        </div>
-        <TextField
-          name="firstName"
-          label="First Name"
-          type="text"
-          value={formik.values.firstName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="first name"
-          error={
-            formik.errors.firstName &&
-            formik.touched.firstName &&
-            formik.errors.firstName
-          }
-        />
-        <TextField
-          name="lastName"
-          label="Last Name"
-          type="text"
-          value={formik.values.lastName}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="last name"
-          error={
-            formik.errors.lastName &&
-            formik.touched.lastName &&
-            formik.errors.lastName
-          }
-        />
-        <TextField
-          name="email"
-          label="email"
-          type="email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="email"
-          error={
-            formik.errors.email && formik.touched.email && formik.errors.email
-          }
-        />
-        <TextField
-          name="phoneNumber"
-          label="Phone"
-          type="tel"
-          value={formik.values.phoneNumber}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="08175636563"
-          error={
-            formik.errors.phoneNumber &&
-            formik.touched.phoneNumber &&
-            formik.errors.phoneNumber
-          }
-        />
-        <TextField
-          name="whatsappNumber"
-          label="whatsappNumber"
-          type="tel"
-          value={formik.values.whatsappNumber}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="08175636563"
-          error={
-            formik.errors.whatsappNumber &&
-            formik.touched.whatsappNumber &&
-            formik.errors.whatsappNumber
-          }
-        />
+		<section>
+			<form className="relative grid grid-cols-1 gap-4 md:grid-cols-2">
+				<div className="relative flex md:col-span-2">
+					<ImageUploader images={images} setImages={setImages} />
+					<div className="flex flex-col justify-between py-4">
+						<p className="bottom-4 text-sm text-primary">Passport</p>
+						<p className="mt-2 text-xs text-red-500">{`${
+							images.length > 0 ? "" : "passport is required"
+						}`}</p>
+					</div>
+				</div>
+				<TextField
+					name="firstName"
+					label="First Name"
+					type="text"
+					value={formik.values.firstName}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					placeholder="first name"
+					error={
+						formik.errors.firstName &&
+						formik.touched.firstName &&
+						formik.errors.firstName
+					}
+				/>
+				<TextField
+					name="lastName"
+					label="Last Name"
+					type="text"
+					value={formik.values.lastName}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					placeholder="last name"
+					error={
+						formik.errors.lastName &&
+						formik.touched.lastName &&
+						formik.errors.lastName
+					}
+				/>
+				<TextField
+					name="email"
+					label="email"
+					type="email"
+					value={formik.values.email}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					placeholder="email"
+					error={
+						formik.errors.email && formik.touched.email && formik.errors.email
+					}
+				/>
+				<TextField
+					name="phoneNumber"
+					label="Phone"
+					type="tel"
+					value={formik.values.phoneNumber}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					placeholder="08175636563"
+					error={
+						formik.errors.phoneNumber &&
+						formik.touched.phoneNumber &&
+						formik.errors.phoneNumber
+					}
+				/>
+				<TextField
+					name="whatsappNumber"
+					label="whatsappNumber"
+					type="tel"
+					value={formik.values.whatsappNumber}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					placeholder="08175636563"
+					error={
+						formik.errors.whatsappNumber &&
+						formik.touched.whatsappNumber &&
+						formik.errors.whatsappNumber
+					}
+				/>
 
-        <div className="flex h-full flex-col justify-between pb-2">
-          <label
-            htmlFor="hasInternationalPassport"
-            className="text-sm font-semibold text-primary"
-          >
-            Have international Passport?
-          </label>
+				<div className="flex h-full flex-col justify-between pb-2">
+					<label
+						htmlFor="hasInternationalPassport"
+						className="text-sm font-semibold text-primary"
+					>
+						Have international Passport?
+					</label>
 
-          <input
-            type="checkbox"
-            name="hasInternationalPassport"
-            id="hasInternationalPassport"
-            checked={formik.values.hasInternationalPassport}
-            onChange={formik.handleChange}
-            className="h-[2rem] w-[2rem] rounded-full text-ring accent-primary checked:text-white focus:ring-green-400"
-          />
-        </div>
+					<input
+						type="checkbox"
+						name="hasInternationalPassport"
+						id="hasInternationalPassport"
+						checked={formik.values.hasInternationalPassport}
+						onChange={formik.handleChange}
+						className="h-[2rem] w-[2rem] rounded-full text-ring accent-primary checked:text-white focus:ring-green-400"
+					/>
+				</div>
 
-        <TextField
-          name="address"
-          label="address"
-          type="text"
-          value={formik.values.address}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="address"
-          error={
-            formik.errors.address &&
-            formik.touched.address &&
-            formik.errors.address
-          }
-        />
+				<TextField
+					name="address"
+					label="address"
+					type="text"
+					value={formik.values.address}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					placeholder="address"
+					error={
+						formik.errors.address &&
+						formik.touched.address &&
+						formik.errors.address
+					}
+				/>
 
-        <List
-          dropdownList={
-            isLoading || isError ? [] : data.data.ongoingCompetitions[0].schools
-          }
-          selectedValue={studentSchool}
-          setSelectedValue={setStudentSchool}
-          label={"Student School"}
-        />
-        {/* <select name=""  id="">
+				{/* <List
+					dropdownList={
+						isLoading || isError ? [] : data.data.ongoingCompetitions[0].schools
+					}
+					selectedValue={studentSchool}
+					setSelectedValue={setStudentSchool}
+					label={"Student School"}
+				/> */}
+				<select name=""  id="" className="bg-transparent border border-app-primary/40 h-[50px] rounded">
           {(isLoading || isError
             ? []
             : data?.data.ongoingCompetitions[0].schools
           ).map((opt) => (
-            <option>{opt.name}</option>
+            <option className="self-start">{opt.name}</option>
           ))}
-        </select> */}
-        <div className="relative flex items-end gap-2">
-          <List
+        </select>
+				<div className="relative flex items-end gap-2">
+					<List
             dropdownList={isLoading || isError ? [] : studentsLevel}
             selectedValue={studentLevelValue}
             setSelectedValue={setStudentLevelValue}
             label={"Student Level"}
           />
-          <div className="border-gray relative flex h-full items-center pt-6">
-            <span className=" flex h-[3rem] w-full items-center justify-center border px-4 font-semibold text-primary">
-              {`${formatAmount(studentLevelValue.amount)}`}
-            </span>
+				
+					<div className="border-gray relative flex h-full items-center pt-6">
+						<span className=" flex h-[3rem] w-full items-center justify-center border px-4 font-semibold text-primary">
+							{`${formatAmount(studentLevelValue.amount)}`}
+						</span>
 
-            <span className="absolute top-0 font-semibold text-primary">
-              Amount
-            </span>
-          </div>
-        </div>
-        <List
-          dropdownList={courseList}
-          selectedValue={course}
-          setSelectedValue={setCourse}
-          label={"Class"}
-        />
-      </form>
-    </section>
-  );
+						<span className="absolute top-0 font-semibold text-primary">
+							Amount
+						</span>
+					</div>
+				</div>
+				<List
+					dropdownList={courseList}
+					selectedValue={course}
+					setSelectedValue={setCourse}
+					label={"Class"}
+				/>
+			</form>
+		</section>
+	);
 }
