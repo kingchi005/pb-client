@@ -3,76 +3,86 @@ import { List, TextField, ImageUploader } from "@/components";
 import { getCompetitions } from "@/lib/axios/requests";
 import { useQuery } from "@tanstack/react-query";
 import { FormTypes } from "./register_student/registerStudentTypes";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectItem } from "@radix-ui/react-select";
+import {
+	Select,
+	SelectTrigger,
+	SelectValue,
+	SelectContent,
+	SelectGroup,
+	SelectLabel,
+	SelectItem,
+} from "@radix-ui/react-select";
+import STATES from "@/lib/states.json";
 
 type Step1Props<T> = {
-  formik: FormikProps<FormTypes>;
-  studentLevelValue: { name: string; amount: number };
-  setStudentLevelValue: React.Dispatch<
-    React.SetStateAction<{
-      name: string;
-      amount: number;
-    }>
-  >;
-  course: { name: string };
-  setCourse: React.Dispatch<
-    React.SetStateAction<{
-      name: string;
-    }>
-  >;
-  studentSchool: { name: string };
-  setStudentSchool: React.Dispatch<
-    React.SetStateAction<{
-      name: string;
-      id: string;
-    }>
-  >;
-  images: any;
-  setImages: any;
+	formik: FormikProps<FormTypes>;
+	studentLevelValue: { name: string; amount: number };
+	setStudentLevelValue: React.Dispatch<
+		React.SetStateAction<{
+			name: string;
+			amount: number;
+		}>
+	>;
+	course: { name: string };
+	setCourse: React.Dispatch<
+		React.SetStateAction<{
+			name: string;
+		}>
+	>;
+	studentSchool: { name: string };
+	setStudentSchool: React.Dispatch<
+		React.SetStateAction<{
+			name: string;
+			id: string;
+		}>
+	>;
+	images: any;
+	setImages: any;
 };
 
 const courseList = [{ name: "Science" }, { name: "Art" }];
-const states=[
-
-]
+const states = [];
 
 export const formatAmount = (amount: number) => {
-  const formatter = new Intl.NumberFormat("en-NG", {
-    style: "currency",
-    currency: "NGN",
-    minimumFractionDigits: 2,
-  });
+	const formatter = new Intl.NumberFormat("en-NG", {
+		style: "currency",
+		currency: "NGN",
+		minimumFractionDigits: 2,
+	});
 
-  return formatter.format(amount);
+	return formatter.format(amount);
 };
 
 export default function Step1<T>({
-  formik,
-  studentLevelValue,
-  setStudentLevelValue,
-  course,
-  setCourse,
-  studentSchool,
-  setStudentSchool,
-  images,
-  setImages,
+	formik,
+	studentLevelValue,
+	setStudentLevelValue,
+	course,
+	setCourse,
+	studentSchool,
+	setStudentSchool,
+	images,
+	setImages,
 }: Step1Props<T>) {
-  // const [studentLevelValue, setStudentLevelValue] = useState(studentLevel[0]);
-  const { isLoading, isError, data } = useQuery(
-    ["competitions"],
-    getCompetitions,
-  );
+	// const [studentLevelValue, setStudentLevelValue] = useState(studentLevel[0]);
+	const { isLoading, isError, data } = useQuery(
+		["competitions"],
+		getCompetitions
+	);
 
-  const studentsLevel = [
-    // { name: "Junior", amount: data?.data.ongoingCompetitions[0].juniorRegFee },
-    { name: "Seconary", amount: data?.data.ongoingCompetitions[0].seniorRegFee },
-    {
-      name: "Tertiary",
-      amount: data?.data.ongoingCompetitions[0].graduateRegFee,
-    },
-  ];
+	const studentsLevel = [
+		// { name: "Junior", amount: data?.data.ongoingCompetitions[0].juniorRegFee },
+		{
+			name: "Seconary",
+			amount: data?.data.ongoingCompetitions[0].seniorRegFee,
+		},
+		{
+			name: "Tertiary",
+			amount: data?.data.ongoingCompetitions[0].graduateRegFee,
+		},
+	];
 
-  return (
+	return (
 		<section>
 			<form className="relative grid grid-cols-1 gap-4 md:grid-cols-2">
 				<div className="relative flex md:col-span-2">
@@ -152,7 +162,6 @@ export default function Step1<T>({
 						formik.errors.whatsappNumber
 					}
 				/>
-
 				<div className="flex h-full flex-col justify-between pb-2">
 					<label
 						htmlFor="hasInternationalPassport"
@@ -170,7 +179,6 @@ export default function Step1<T>({
 						className="h-[2rem] w-[2rem] rounded-full text-ring accent-primary checked:text-white focus:ring-green-400"
 					/>
 				</div>
-
 				<TextField
 					name="address"
 					label="address"
@@ -185,31 +193,34 @@ export default function Step1<T>({
 						formik.errors.address
 					}
 				/>
-
-				{/* <List
-					dropdownList={
-						isLoading || isError ? [] : data.data.ongoingCompetitions[0].schools
-					}
-					selectedValue={studentSchool}
-					setSelectedValue={setStudentSchool}
-					label={"Student School"}
-				/> */}
-				<select name=""  id="" className="bg-transparent border border-app-primary/40 h-[50px] rounded">
-          {(isLoading || isError
-            ? []
-            : data?.data.ongoingCompetitions[0].schools
-          ).map((opt) => (
-            <option className="self-start">{opt.name}</option>
-          ))}
-        </select>
+				<div className="flex flex-col">
+					<label
+						htmlFor="school"
+						className="font-semi-bold ml-1 text-sm font-semibold capitalize text-primary block"
+					>
+						Institution
+					</label>
+					<select
+						name=""
+						id="school"
+						className="bg-transparent border border-app-primary/40 h-[50px] rounded"
+					>
+						{(isLoading || isError
+							? []
+							: data?.data.ongoingCompetitions[0].schools
+						).map((opt) => (
+							<option className="self-start">{opt.name}</option>
+						))}
+					</select>
+				</div>
 				<div className="relative flex items-end gap-2">
 					<List
-            dropdownList={isLoading || isError ? [] : studentsLevel}
-            selectedValue={studentLevelValue}
-            setSelectedValue={setStudentLevelValue}
-            label={"Institution Category"}
-          />
-				
+						dropdownList={isLoading || isError ? [] : studentsLevel}
+						selectedValue={studentLevelValue}
+						setSelectedValue={setStudentLevelValue}
+						label={"Institution Category"}
+					/>
+
 					<div className="border-gray relative flex h-full items-center pt-6">
 						<span className=" flex h-[3rem] w-full items-center justify-center border px-4 font-semibold text-primary">
 							{`${formatAmount(studentLevelValue.amount)}`}
@@ -220,12 +231,29 @@ export default function Step1<T>({
 						</span>
 					</div>
 				</div>
-				<List
+				<div className="Flex flex-col ">
+					<label
+						htmlFor="stata"
+						className="font-semi-bold ml-1 text-sm font-semibold capitalize text-primary block"
+					>
+						State
+					</label>
+					<select
+						name="state"
+						id="state"
+						className="bg-transparent border border-app-primary/40 h-[50px] rounded"
+					>
+						{STATES.map((opt) => (
+							<option className="self-start">{opt.name}</option>
+						))}
+					</select>
+				</div>
+				{/* <List
 					dropdownList={courseList}
 					selectedValue={course}
 					setSelectedValue={setCourse}
 					label={"State"}
-				/>
+				/> */}
 			</form>
 		</section>
 	);

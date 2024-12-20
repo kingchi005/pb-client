@@ -50,7 +50,7 @@ export default function Step2({ step2Data, getPaymentReference }: Step2Props) {
               <td className="">{step2Data?.current?.email}</td>
             </tr>
             <tr>
-              <td className="font-semibold text-primary">Class</td>
+              <td className="font-semibold text-primary">Category</td>
               <td>{step2Data?.current?.level}</td>
             </tr>
             <tr>

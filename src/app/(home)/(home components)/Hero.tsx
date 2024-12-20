@@ -6,10 +6,10 @@ export default function Hero() {
     <section className="hero mx-auto mb-20 max-w-5xl  rounded-2xl bg-white bg-[url('/images/housewb.png')] bg-cover bg-center bg-no-repeat object-center">
       <div className=" relative mt-14 w-full flex-row items-center space-y-10 overflow-hidden rounded-2xl bg-gradient-to-tl from-neutral-50/80 to-app-green/5 px-5  py-32  pt-[4rem] md:flex md:space-y-0 md:px-16 lg:px-20">
         <div className="justify-centermd:text-start flex-auto space-y-8 text-center md:justify-start md:text-start">
-          <p className="text-5xl font-bold text-app-primary">
+          <p className="text-4xl font-bold text-app-primary">
             PB Cambridge Consult
           </p>
-          <p className="text-5xl font-bold">
+          <p className="text-4xl font-bold">
             Empowering Tomorrow's Leaders Today
           </p>
           <p className="fo text-lg">Explore, Learn, Thrive</p>

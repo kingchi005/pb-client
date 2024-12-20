@@ -5,14 +5,14 @@ export interface FormTypes {
     email: string;
     whatsappNumber: string;
     phoneNumber: string;
-    scienceOrArt: string;
+    state: string;
     hasInternationalPassport: boolean;
     // imageUrl: string;
   };
 
   export interface Step2Data extends FormTypes  {
     amount: number;
-    scienceOrArt: string
+    state: string
     passport: string
     schoolId: string
     level: string
