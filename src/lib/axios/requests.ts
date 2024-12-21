@@ -32,7 +32,7 @@ import { Step2Data } from "@/app/(home)/portal/register_student/registerStudentT
 
 export const getCompetitions = async () => {
 	const response = await axios.get<OngoingCompetitionsResponse>(
-		"/admin/ongoing-competitions"
+		"/user/ongoing-competitions"
 	);
 	return response.data;
 };

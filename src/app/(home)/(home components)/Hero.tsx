@@ -1,5 +1,6 @@
 import { ArrowBigRight, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -13,10 +14,10 @@ export default function Hero() {
             Empowering Tomorrow's Leaders Today
           </p>
           <p className="fo text-lg">Explore, Learn, Thrive</p>
-          <button className="mx-auto flex flex-row items-center gap-3 rounded-3xl bg-gradient-to-r from-app-green to-app-primary px-5 py-1.5 text-white md:mx-0 ">
+          <Link href="/events"className="mx-auto flex flex-row items-center gap-3 rounded-3xl bg-gradient-to-r from-app-green to-app-primary px-5 py-1.5 text-white md:mx-0 w-fit">
             <span className="m-0 pb-1.5">Learn more</span>
             <ArrowRight size={20} />
-          </button>
+          </Link>
         </div>
         <div className="">
           <img src="/images/hero-image.png" className="" alt="" />
