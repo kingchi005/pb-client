@@ -27,6 +27,7 @@ type Step1Props<T> = {
 	setCourse: React.Dispatch<
 		React.SetStateAction<{
 			name: string;
+			cities: string[];
 		}>
 	>;
 	studentSchool: { name: string };
@@ -193,26 +194,17 @@ export default function Step1<T>({
 						formik.errors.address
 					}
 				/>
-				<div className="flex flex-col">
-					<label
-						htmlFor="school"
-						className="font-semi-bold ml-1 text-sm font-semibold capitalize text-primary block"
-					>
-						Institution
-					</label>
-					<select
-						name=""
-						id="school"
-						className="bg-transparent border border-app-primary/40 h-[50px] rounded"
-					>
-						{(isLoading || isError
+				<List
+					dropdownList={
+						isLoading || isError
 							? []
 							: data?.data.ongoingCompetitions[0].schools
-						).map((opt) => (
-							<option className="self-start">{opt.name}</option>
-						))}
-					</select>
-				</div>
+					}
+					selectedValue={studentSchool}
+					setSelectedValue={setStudentSchool}
+					label={"Institution"}
+				/>
+
 				<div className="relative flex items-end gap-2">
 					<List
 						dropdownList={isLoading || isError ? [] : studentsLevel}
@@ -231,7 +223,7 @@ export default function Step1<T>({
 						</span>
 					</div>
 				</div>
-				<div className="Flex flex-col ">
+				{/* <div className="Flex flex-col ">
 					<label
 						htmlFor="stata"
 						className="font-semi-bold ml-1 text-sm font-semibold capitalize text-primary block"
@@ -247,13 +239,13 @@ export default function Step1<T>({
 							<option className="self-start">{opt.name}</option>
 						))}
 					</select>
-				</div>
-				{/* <List
-					dropdownList={courseList}
+				</div> */}
+				<List
+					dropdownList={STATES}
 					selectedValue={course}
 					setSelectedValue={setCourse}
 					label={"State"}
-				/> */}
+				/>
 			</form>
 		</section>
 	);

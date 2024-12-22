@@ -13,93 +13,101 @@ import { getCompetitions, registerStudent } from "@/lib/axios/requests";
 import { FormTypes, Step2Data } from "./register_student/registerStudentTypes";
 import { ResponseData } from "@/lib/axios/requestTypes";
 import toast from "react-hot-toast";
+import STATES from "@/lib/states.json";
 
-const courseList = [{ name: "Science" }, { name: "Art" }];
+const courseList = [
+	{
+		name: "Seconary",
+	},
+	{
+		name: "Tertiary",
+	},
+];
 
 export default function Register() {
-  const pathname = usePathname();
+	const pathname = usePathname();
 
-  const [steps, setSteps] = useState(1);
-  const [studentLevelValue, setStudentLevelValue] = useState({
-    name: "",
-    amount: 0,
-  });
-  const [course, setCourse] = useState(courseList[0]);
-  const [studentSchool, setStudentSchool] = useState({
-    name: "",
-    id: "",
-  });
-  const [images, setImages] = useState<any>([]);
-  const step2Data = useRef<Step2Data | null>(null);
-  const step3Data = useRef<ResponseData | null>(null);
-  const [loading, setloading] = useState(false);
-  const { data } = useQuery(["competitions"], getCompetitions);
+	const [steps, setSteps] = useState(1);
+	const [studentLevelValue, setStudentLevelValue] = useState({
+		name: "",
+		amount: 0,
+	});
+	const [course, setCourse] = useState(STATES[0]);
+	const [studentSchool, setStudentSchool] = useState({
+		name: "",
+		id: "",
+	});
+	const [images, setImages] = useState<any>([]);
+	const step2Data = useRef<Step2Data | null>(null);
+	const step3Data = useRef<ResponseData | null>(null);
+	const [loading, setloading] = useState(false);
+	const { data } = useQuery(["competitions"], getCompetitions);
 
-  const { id } = data?.data.ongoingCompetitions[0] || {};
+	const { id } = data?.data.ongoingCompetitions[0] || {};
 
-  useEffect(() => {
-    if (data) {
-      const studentsLevel = {
-        name: "Tertiary",
-        amount: data?.data.ongoingCompetitions[0].juniorRegFee,
-      };
+	useEffect(() => {
+		if (data) {
+			const studentsLevel = {
+				name: "Tertiary",
+				amount: data?.data.ongoingCompetitions[0].graduateRegFee,
+			};
 
-      setStudentSchool(data.data.ongoingCompetitions[0].schools[0]);
-      setStudentLevelValue(studentsLevel);
-    }
-  }, [data]);
-  const formik = useFormik<FormTypes>({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      address: "",
-      email: "",
-      phoneNumber: "",
-      whatsappNumber: "",
-      state: "",
-      hasInternationalPassport: false,
-    },
-    validationSchema: registerValidationSchema,
-    onSubmit: (values) => {
-      if (images.length > 0 && data !== undefined) {
-        step2Data.current = {
-          ...values,
-          amount: studentLevelValue.amount,
-          state: course.name,
-          passport: images[0].dataURL,
-          schoolId: studentSchool.id,
-          level: studentLevelValue.name,
-        };
+			setStudentSchool(data.data.ongoingCompetitions[0].schools[0]);
+			setStudentLevelValue(studentsLevel);
+		}
+	}, [data]);
+	const formik = useFormik<FormTypes>({
+		initialValues: {
+			firstName: "",
+			lastName: "",
+			address: "",
+			email: "",
+			phoneNumber: "",
+			whatsappNumber: "",
+			state: "",
+			hasInternationalPassport: false,
+		},
+		validationSchema: registerValidationSchema,
+		onSubmit: (values) => {
+			if (images.length > 0 && data !== undefined) {
+				step2Data.current = {
+					...values,
+					amount: studentLevelValue.amount,
+					state: course.name,
+					passport: images[0].dataURL,
+					schoolId: studentSchool.id,
+					level: studentLevelValue.name,
+				};
 
-        setSteps(2);
-      }
-    },
-  });
+				setSteps(2);
+			}
+		},
+	});
 
-  const handleNextButton = () => {
-    if (steps === 1) {
-      formik.handleSubmit();
-    }
-  };
+	const handleNextButton = () => {
+		if (steps === 1) {
+			formik.handleSubmit();
+		}
+	};
 
-  const getPaymentReference = (reference: string) => {
-    // register student after successful payment
-    if (step2Data.current != undefined) {
-      setloading(true);
-      step2Data.current;
+	const getPaymentReference = (reference: string) => {
+		// register student after successful payment
+		if (step2Data.current != undefined) {
+			setloading(true);
+			step2Data.current;
 
-      registerStudent(step2Data.current, id, reference)
-        .then((data) => {
-          step3Data.current = data.data;
-          setSteps(3);
-        })
-        .catch((err) => {
-          toast.error("error registering student contact admin");
-        })
-        .finally(() => setloading(false));
-    }
-  };
-  return (
+			registerStudent(step2Data.current, id, reference)
+				.then((data) => {
+					step3Data.current = data.data;
+					setSteps(3);
+				})
+				.catch((err) => {
+					toast.error("error registering student contact admin");
+				})
+				.finally(() => setloading(false));
+		}
+	};
+	return (
 		<section
 			className={`mx-auto min-h-screen w-[90%] ${
 				pathname.includes("register_student")

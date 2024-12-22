@@ -13,6 +13,7 @@ export default function Step2({ step2Data, getPaymentReference }: Step2Props) {
     // Implementation for whatever you want to do with reference and after success call.
     getPaymentReference(reference.reference);
   };
+console.log(step2Data);
 
   // you can call this function anything
   const handlePaystackCloseAction = () => {
@@ -50,7 +51,7 @@ export default function Step2({ step2Data, getPaymentReference }: Step2Props) {
               <td className="">{step2Data?.current?.email}</td>
             </tr>
             <tr>
-              <td className="font-semibold text-primary">Category</td>
+              <td className="font-semibold text-primary">Institution Category</td>
               <td>{step2Data?.current?.level}</td>
             </tr>
             <tr>
