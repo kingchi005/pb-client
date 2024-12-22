@@ -64,6 +64,9 @@ export default function Page({ params: { eventId } }: TProps) {
 	//  console.log(isPast(endDate));
 	//  console.log(ongoing);
 
+	// console.log(event);
+	
+
 	return (
 		<main className="my-4 flex flex-col gap-4 px-2 pt-[7rem] lg:flex-row lg:px-[4rem]">
 			<div className="lg:w-2/3">
