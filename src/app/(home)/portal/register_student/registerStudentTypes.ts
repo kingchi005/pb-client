@@ -1,14 +1,16 @@
 export interface FormTypes {
-    firstName: string;
-    lastName: string;
-    address: string;
-    email: string;
-    whatsappNumber: string;
-    phoneNumber: string;
-    state: string;
-    hasInternationalPassport: boolean;
-    // imageUrl: string;
-  };
+	firstName: string;
+	lastName: string;
+	address: string;
+	email: string;
+	whatsappNumber: string;
+	phoneNumber: string;
+	faculty: string;
+	department: string;
+	state: string;
+	hasInternationalPassport: boolean;
+	// imageUrl: string;
+};
 
   export interface Step2Data extends FormTypes  {
     amount: number;

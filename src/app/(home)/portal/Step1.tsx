@@ -205,6 +205,35 @@ export default function Step1<T>({
 					label={"Institution"}
 				/>
 
+				<TextField
+					name="faculty"
+					label="Faculty"
+					type="text"
+					value={formik.values.faculty}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					placeholder="first name"
+					error={
+						formik.errors.faculty &&
+						formik.touched.faculty &&
+						formik.errors.faculty
+					}
+				/>
+				<TextField
+					name="department"
+					label="Department"
+					type="text"
+					value={formik.values.department}
+					onChange={formik.handleChange}
+					onBlur={formik.handleBlur}
+					placeholder="last name"
+					error={
+						formik.errors.department &&
+						formik.touched.department &&
+						formik.errors.department
+					}
+				/>
+
 				<div className="relative flex items-end gap-2">
 					<List
 						dropdownList={isLoading || isError ? [] : studentsLevel}

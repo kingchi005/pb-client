@@ -63,6 +63,8 @@ export default function Register() {
 			address: "",
 			email: "",
 			phoneNumber: "",
+			faculty: "",
+			department: "",
 			whatsappNumber: "",
 			state: "",
 			hasInternationalPassport: false,
