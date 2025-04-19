@@ -10,6 +10,19 @@ export default function List({
   setSelectedValue,
   label,
 }) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredList = dropdownList.filter((item) =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleSearchKeyDown = (e) => {
+    if (e.key === " ") {
+      e.preventDefault();
+      setSearchQuery((prev) => prev + " ");
+    }
+  };
+
   return (
     <div className="relative z-[300] w-full">
       <Listbox value={selectedValue} onChange={setSelectedValue}>
@@ -33,8 +46,18 @@ export default function List({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options  className="absolute z-[500] option list-option w-full overflow-y-auto rounded-md  bg-white px-4  py-1 text-base shadow-lg  sm:text-sm">
-            {dropdownList?.slice(0,50).map((person, personIdx) => (
+          <Listbox.Options className="absolute z-[500] option list-option w-full overflow-y-auto rounded-md bg-white px-4 py-1 text-base shadow-lg sm:text-sm">
+            <div className="relative mb-2">
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleSearchKeyDown}
+                className="w-full border px-3 py-2 text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+            {filteredList.slice(0, 50).map((person, personIdx) => (
               <Listbox.Option
                 key={personIdx}
                 className={({ active }) =>

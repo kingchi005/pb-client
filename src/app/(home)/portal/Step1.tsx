@@ -71,6 +71,9 @@ export default function Step1<T>({
 		getCompetitions
 	);
 
+
+	// console.log(data)
+
 	const studentsLevel = [
 		// { name: "Junior", amount: data?.data.ongoingCompetitions[0].juniorRegFee },
 		{

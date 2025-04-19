@@ -36,6 +36,7 @@ export const getCompetitions = async () => {
 	);
 	return response.data;
 };
+
 export const getEventDetails = async (id: string) => {
 	const response = await axios.get<{ data: Event }>(`/event/${id}`);
 	return response.data;
