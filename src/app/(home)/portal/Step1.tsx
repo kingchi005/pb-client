@@ -77,7 +77,7 @@ export default function Step1<T>({
 	const studentsLevel = [
 		// { name: "Junior", amount: data?.data.ongoingCompetitions[0].juniorRegFee },
 		{
-			name: "Seconary",
+			name: "Secondary",
 			amount: data?.data.ongoingCompetitions[0].seniorRegFee,
 		},
 		{

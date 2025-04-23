@@ -12,9 +12,22 @@ export default function List({
 }) {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredList = dropdownList.filter((item) =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Helper: get initials from a string (e.g., 'John Doe' => 'jd')
+
+
+  const filteredList = dropdownList.filter((item) => {
+    if (!searchQuery.trim()) return true;
+    const query = searchQuery.toLowerCase();
+    return Object.values(item).some((val) => {
+      if (typeof val !== "string") return false;
+      const valueLower = val.toLowerCase();
+      // Match full string, substring, or initials/abbr
+      return (
+        valueLower.includes(query) ||
+        getInitials(valueLower).includes(query)
+      );
+    });
+  });
 
   const handleSearchKeyDown = (e) => {
     if (e.key === " ") {
@@ -91,3 +104,11 @@ export default function List({
     </div>
   );
 }
+
+
+  function getInitials(str) {
+    return str
+      .split(/\s+/)
+      .map(word => word[0]?.toLowerCase() || "")
+      .join("");
+  }

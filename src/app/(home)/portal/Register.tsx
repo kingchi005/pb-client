@@ -104,7 +104,8 @@ export default function Register() {
 					setSteps(3);
 				})
 				.catch((err) => {
-					toast.error("error registering student contact admin");
+					console.log(err)
+					toast.error(`error: ${err?.response?.data?.error?.message}`);
 				})
 				.finally(() => setloading(false));
 		}

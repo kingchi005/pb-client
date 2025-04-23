@@ -32,7 +32,11 @@ export default function ContactForm() {
 					toast.success("email sent successfully", { duration: 5000 });
 					resetForm();
 				})
-				.catch((err) => toast.error("error sending email", { duration: 5000 }))
+				.catch((err) =>
+					toast.error(`error sending email`, {
+						duration: 5000,
+					})
+				)
 				.finally(() => setLoading(false));
 		},
 	});
