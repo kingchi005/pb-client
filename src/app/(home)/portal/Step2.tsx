@@ -13,7 +13,7 @@ export default function Step2({ step2Data, getPaymentReference }: Step2Props) {
 		// Implementation for whatever you want to do with reference and after success call.
 		getPaymentReference(reference.reference);
 	};
-	console.log(step2Data);
+	// console.log(step2Data);
 
 	// you can call this function anything
 	const handlePaystackCloseAction = () => {
