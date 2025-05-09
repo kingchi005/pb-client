@@ -52,7 +52,7 @@ export default function Register() {
 				amount: data?.data.ongoingCompetitions[0].graduateRegFee,
 			};
 
-			setStudentSchool(data.data.ongoingCompetitions[0].schools[0]);
+			setStudentSchool(data?.data.schools[0]);
 			setStudentLevelValue(studentsLevel);
 		}
 	}, [data]);
@@ -104,7 +104,7 @@ export default function Register() {
 					setSteps(3);
 				})
 				.catch((err) => {
-					console.log(err)
+					console.log(err);
 					toast.error(`error: ${err?.response?.data?.error?.message}`);
 				})
 				.finally(() => setloading(false));

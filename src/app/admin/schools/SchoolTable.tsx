@@ -34,6 +34,7 @@ const schools: School[] = [
 export default function SchoolTable() {
 	const { data, isLoading, isError } = useQuery(["all-schools"], getSchools);
 	const [isEditing, setIsEditing] = React.useState(false);
+	const [search, setSearch] = React.useState("");
 	const queryClient = useQueryClient();
 
 	const updateSchool = useMutation({
@@ -70,10 +71,19 @@ export default function SchoolTable() {
 
 	return (
 		<>
+			<div className="mb-4 flex items-center gap-2">
+				<Input
+					placeholder="Search schools by name..."
+					value={search}
+					onChange={e => setSearch(e.target.value)}
+					className="w-64"
+				/>
+			</div>
 			<div className=" mt-5 border-collapse border-spacing-4 rounded-md border border-primary">
 				<ul className="flex flex-col flex-wrap gap-4 p-5">
 					{data.data.schools &&
 						data.data.schools
+							.filter(school => school.name.toLowerCase().includes(search.toLowerCase()))
 							.sort((a, b) => (a.name?.[0] > b.name?.[0] ? 1 : 0))
 							.map(({ id, name, students }) => (
 								<li

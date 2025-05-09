@@ -23,6 +23,7 @@ export type Competition = OngoingCompetition[];
 export type OngoingCompetitionsResponse = {
   data: {
     ongoingCompetitions: OngoingCompetition[];
+    schools: School[];
   };
   message: string;
   ok: boolean;

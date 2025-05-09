@@ -72,8 +72,6 @@ export default function Step1<T>({
 	);
 
 
-	// console.log(data)
-
 	const studentsLevel = [
 		// { name: "Junior", amount: data?.data.ongoingCompetitions[0].juniorRegFee },
 		{
@@ -198,11 +196,7 @@ export default function Step1<T>({
 					}
 				/>
 				<List
-					dropdownList={
-						isLoading || isError
-							? []
-							: data?.data.ongoingCompetitions[0].schools
-					}
+					dropdownList={isLoading || isError ? [] : data?.data.schools}
 					selectedValue={studentSchool}
 					setSelectedValue={setStudentSchool}
 					label={"Institution"}
